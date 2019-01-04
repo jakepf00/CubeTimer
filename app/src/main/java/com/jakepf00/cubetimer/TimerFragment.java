@@ -56,11 +56,11 @@ public class TimerFragment extends Fragment {
                 if (isChecked) {
                     // Start timing
                     TextView scrambleText = getView().findViewById(R.id.scramble_text);
-                    scrambleText.setText("Timing");
+                    scrambleText.setText(R.string.scramble_text_2);
                 } else {
                     // Stop timing
                     TextView scrambleText = getView().findViewById(R.id.scramble_text);
-                    scrambleText.setText("Stopped");
+                    scrambleText.setText(R.string.scramble_text_1);
                 }
             }
         });

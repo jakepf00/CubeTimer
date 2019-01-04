@@ -7,6 +7,9 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="swipe_up_for_solves">Swipe up for session solves</string>
+    <string name="archive_session">Archive session</string>
+    <string name="scramble_text_1">scramble text 1</string>
+    <string name="scramble_text_2">scramble text 2</string>
+
 </resources>
