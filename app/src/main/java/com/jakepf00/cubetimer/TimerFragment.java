@@ -1,11 +1,14 @@
 package com.jakepf00.cubetimer;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -49,19 +52,15 @@ public class TimerFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_timer, container, false);
     }
     @Override
+    @SuppressLint("ClickableViewAccessibility")
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        ToggleButton timerToggle = getView().findViewById(R.id.timer_toggle);
-        timerToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // Start timing
-                    TextView scrambleText = getView().findViewById(R.id.scramble_text);
-                    scrambleText.setText(R.string.scramble_text_2);
-                } else {
-                    // Stop timing
-                    TextView scrambleText = getView().findViewById(R.id.scramble_text);
-                    scrambleText.setText(R.string.scramble_text_1);
-                }
+        ConstraintLayout timerLayout = getView().findViewById(R.id.timer_layout);
+        timerLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                TextView tv = getView().findViewById(R.id.scramble_text);
+                tv.setText("aye");
+                return false;
             }
         });
 
