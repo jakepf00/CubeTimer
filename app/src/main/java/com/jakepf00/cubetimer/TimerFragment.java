@@ -27,6 +27,8 @@ public class TimerFragment extends Fragment {
     private String mParam2;
     private OnFragmentInteractionListener mListener;
 
+    Clock timer = new Clock();
+
     public TimerFragment() {
 
     }
@@ -59,8 +61,17 @@ public class TimerFragment extends Fragment {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 TextView tv = getView().findViewById(R.id.scramble_text);
-                tv.setText("aye");
-                return false;
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        timer.start();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        double time = timer.stop();
+                        String timeStr = "" + time;
+                        tv.setText(timeStr);
+                        break;
+                }
+                return true;
             }
         });
 
