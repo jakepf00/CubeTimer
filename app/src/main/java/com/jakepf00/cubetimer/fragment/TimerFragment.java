@@ -1,4 +1,4 @@
-package com.jakepf00.cubetimer;
+package com.jakepf00.cubetimer.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,10 +12,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
+
+import com.jakepf00.cubetimer.Clock;
+import com.jakepf00.cubetimer.R;
+import com.jakepf00.cubetimer.Solve;
 
 import java.util.ArrayList;
 

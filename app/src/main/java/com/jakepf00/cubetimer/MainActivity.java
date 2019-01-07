@@ -16,6 +16,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.jakepf00.cubetimer.fragment.ExportFragment;
+import com.jakepf00.cubetimer.fragment.ReferenceFragment;
+import com.jakepf00.cubetimer.fragment.SettingsFragment;
+import com.jakepf00.cubetimer.fragment.StatisticsFragment;
+import com.jakepf00.cubetimer.fragment.TimerFragment;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         TimerFragment.OnFragmentInteractionListener,

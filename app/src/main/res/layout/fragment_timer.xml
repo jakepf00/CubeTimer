@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
     android:gravity="bottom"
-    tools:context=".TimerFragment"
+    tools:context=".fragment.TimerFragment"
     app:umanoDragView="@id/dragView"
     >
 
@@ -117,7 +117,7 @@
             android:layout_marginTop="128dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/archive_session_button"></ListView>
+            app:layout_constraintTop_toTopOf="@+id/archive_session_button" />
 
     </android.support.constraint.ConstraintLayout>
 

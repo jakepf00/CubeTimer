@@ -1,14 +1,12 @@
 package com.jakepf00.cubetimer;
 
-class Clock {
+public class Clock {
     private double  start = 0.0;
 
-    Clock() {}
-
-    void start() {
+    public void start() {
         start = System.currentTimeMillis();
     }
-    double stop() {
+    public double stop() {
         double now = System.currentTimeMillis();
         return (now - start) / 1000.0;
     }
