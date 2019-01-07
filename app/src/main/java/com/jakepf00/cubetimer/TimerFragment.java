@@ -17,6 +17,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import java.util.ArrayList;
+
 public class TimerFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,6 +31,9 @@ public class TimerFragment extends Fragment {
 
     Clock timer = new Clock();
     boolean timerRunning = false;
+    ArrayList<Solve> solves = new ArrayList<>();
+    ArrayAdapter<Solve> arrayAdapter;
+    ListView listView;
 
     public TimerFragment() {
 
@@ -68,6 +73,10 @@ public class TimerFragment extends Fragment {
                             double time = timer.stop();
                             String timeStr = "" + time;
                             tv.setText(timeStr);
+                            Solve solve = new Solve();
+                            solve.time = time;
+                            solves.add(0, solve);
+                            arrayAdapter.notifyDataSetChanged();
                         } else {
                             tv.setText("Release to start timer");
                         }
@@ -86,9 +95,9 @@ public class TimerFragment extends Fragment {
             }
         });
 
-        ListView listView = getView().findViewById(R.id.session_stats_list);
-        listView.setAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1,
-                new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+        arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, solves);
+        listView = getView().findViewById(R.id.session_stats_list);
+        listView.setAdapter(arrayAdapter);
     }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
