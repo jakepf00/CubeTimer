@@ -28,6 +28,7 @@ public class TimerFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     Clock timer = new Clock();
+    boolean timerRunning = false;
 
     public TimerFragment() {
 
@@ -63,12 +64,22 @@ public class TimerFragment extends Fragment {
                 TextView tv = getView().findViewById(R.id.scramble_text);
                 switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        timer.start();
+                        if (timerRunning) {
+                            double time = timer.stop();
+                            String timeStr = "" + time;
+                            tv.setText(timeStr);
+                        } else {
+                            tv.setText("Release to start timer");
+                        }
                         break;
                     case MotionEvent.ACTION_UP:
-                        double time = timer.stop();
-                        String timeStr = "" + time;
-                        tv.setText(timeStr);
+                        if (timerRunning) {
+                            timerRunning = false;
+                        } else {
+                            timer.start();
+                            timerRunning = true;
+                            tv.setText("Timing");
+                        }
                         break;
                 }
                 return true;

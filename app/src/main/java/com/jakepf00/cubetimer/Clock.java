@@ -1,7 +1,7 @@
 package com.jakepf00.cubetimer;
 
 class Clock {
-    private double  start;
+    private double  start = 0.0;
 
     Clock() {}
 
