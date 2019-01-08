@@ -52,7 +52,7 @@ public class TimerFragment extends Fragment {
         timerLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                TextView tv = getView().findViewById(R.id.scramble_text);
+                TextView tv = getView().findViewById(R.id.time_text);
                 switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         if (timerRunning) {
