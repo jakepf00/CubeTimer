@@ -110,5 +110,20 @@ public class TimerFragment extends Fragment {
         double mean = Statistics.calculateMean(solves);
         String meanText = "" + mean;
         meanTextView.setText(meanText);
+
+        TextView bestTextView = getActivity().findViewById(R.id.session_best_text);
+        double best = Statistics.calculateBest(solves);
+        String bestText = "" + best;
+        bestTextView.setText(bestText);
+
+        TextView averageFiveTextView = getActivity().findViewById(R.id.current_ao5_text);
+        double averageFive = Statistics.calculateAverage(solves, 5);
+        String averageFiveText = "" + averageFive;
+        averageFiveTextView.setText(averageFiveText);
+
+        TextView averageTwelveTextView = getActivity().findViewById(R.id.current_ao12_text);
+        double averageTwelve = Statistics.calculateAverage(solves, 12);
+        String averageTwelveText = "" + averageTwelve;
+        averageTwelveTextView.setText(averageTwelveText);
     }
 }
