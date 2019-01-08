@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.jakepf00.cubetimer.Clock;
 import com.jakepf00.cubetimer.R;
 import com.jakepf00.cubetimer.Solve;
+import com.jakepf00.cubetimer.Statistics;
 
 import java.util.ArrayList;
 
@@ -63,6 +64,7 @@ public class TimerFragment extends Fragment {
                             solve.time = time;
                             solves.add(0, solve);
                             arrayAdapter.notifyDataSetChanged();
+                            updateStatistics(solves);
                         } else {
                             tv.setText("Release to start timer");
                         }
@@ -101,5 +103,12 @@ public class TimerFragment extends Fragment {
     }
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
+    }
+
+    private void updateStatistics(ArrayList<Solve> solves) {
+        TextView meanTextView = getActivity().findViewById(R.id.current_mean_text);
+        double mean = Statistics.calculateMean(solves);
+        String meanText = "" + mean;
+        meanTextView.setText(meanText);
     }
 }
