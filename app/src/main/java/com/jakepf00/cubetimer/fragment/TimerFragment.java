@@ -66,7 +66,7 @@ public class TimerFragment extends Fragment {
                             arrayAdapter.notifyDataSetChanged();
                             updateStatistics(solves);
                         } else {
-                            tv.setText("Release to start timer");
+                            tv.setText(R.string.release_to_start);
                         }
                         break;
                     case MotionEvent.ACTION_UP:
@@ -75,7 +75,7 @@ public class TimerFragment extends Fragment {
                         } else {
                             timer.start();
                             timerRunning = true;
-                            tv.setText("Timing");
+                            tv.setText(R.string.timing);
                         }
                         break;
                 }
@@ -119,11 +119,20 @@ public class TimerFragment extends Fragment {
         TextView averageFiveTextView = getActivity().findViewById(R.id.current_ao5_text);
         double averageFive = Statistics.calculateAverage(solves, 5);
         String averageFiveText = "" + averageFive;
-        averageFiveTextView.setText(averageFiveText);
+        if (averageFive == 0.0) {
+            averageFiveTextView.setText("--");
+        } else {
+            averageFiveTextView.setText(averageFiveText);
+        }
 
         TextView averageTwelveTextView = getActivity().findViewById(R.id.current_ao12_text);
         double averageTwelve = Statistics.calculateAverage(solves, 12);
         String averageTwelveText = "" + averageTwelve;
         averageTwelveTextView.setText(averageTwelveText);
+        if (averageTwelve == 0.0) {
+            averageTwelveTextView.setText("--");
+        } else {
+            averageTwelveTextView.setText(averageTwelveText);
+        }
     }
 }

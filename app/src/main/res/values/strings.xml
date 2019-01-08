@@ -9,5 +9,13 @@
 
     <string name="swipe_up_for_solves">Swipe up for session solves</string>
     <string name="archive_session">Archive session</string>
-
+    <string name="no_data_available">--</string>
+    <string name="scramble_text">R U R\' U\' R\' F R2 U\' R\' U\' R U R\' F\'</string>
+    <string name="touch_to_start">Touch screen to start</string>
+    <string name="session_best">Session best:</string>
+    <string name="session_Ao5">Current Ao5:</string>
+    <string name="session_Ao12">Current Ao12:</string>
+    <string name="session_mean">Current mean:</string>
+    <string name="release_to_start">Release to start timer</string>
+    <string name="timing">Timing</string>
 </resources>
