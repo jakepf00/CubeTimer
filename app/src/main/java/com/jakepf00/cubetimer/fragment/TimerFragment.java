@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -83,6 +84,19 @@ public class TimerFragment extends Fragment {
             }
         });
 
+        Button archiveSessionButton = getView().findViewById(R.id.archive_session_button);
+        archiveSessionButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO: save solves to a file
+                solves.clear();
+                arrayAdapter.notifyDataSetChanged();
+                updateStatistics(solves);
+                TextView tv = getView().findViewById(R.id.time_text);
+                tv.setText(R.string.touch_to_start);
+            }
+        });
+
         arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, solves);
         listView = getView().findViewById(R.id.session_stats_list);
         listView.setAdapter(arrayAdapter);
@@ -109,18 +123,26 @@ public class TimerFragment extends Fragment {
         TextView meanTextView = getActivity().findViewById(R.id.current_mean_text);
         double mean = Statistics.calculateMean(solves);
         String meanText = "" + mean;
-        meanTextView.setText(meanText);
+        if (mean == 0.0) {
+            meanTextView.setText(R.string.no_data_available);
+        } else {
+            meanTextView.setText(meanText);
+        }
 
         TextView bestTextView = getActivity().findViewById(R.id.session_best_text);
         double best = Statistics.calculateBest(solves);
         String bestText = "" + best;
-        bestTextView.setText(bestText);
+        if (best == 0.0) {
+            bestTextView.setText(R.string.no_data_available);
+        } else {
+            bestTextView.setText(bestText);
+        }
 
         TextView averageFiveTextView = getActivity().findViewById(R.id.current_ao5_text);
         double averageFive = Statistics.calculateAverage(solves, 5);
         String averageFiveText = "" + averageFive;
         if (averageFive == 0.0) {
-            averageFiveTextView.setText("--");
+            averageFiveTextView.setText(R.string.no_data_available);
         } else {
             averageFiveTextView.setText(averageFiveText);
         }
@@ -130,7 +152,7 @@ public class TimerFragment extends Fragment {
         String averageTwelveText = "" + averageTwelve;
         averageTwelveTextView.setText(averageTwelveText);
         if (averageTwelve == 0.0) {
-            averageTwelveTextView.setText("--");
+            averageTwelveTextView.setText(R.string.no_data_available);
         } else {
             averageTwelveTextView.setText(averageTwelveText);
         }

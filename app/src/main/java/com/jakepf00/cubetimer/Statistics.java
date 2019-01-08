@@ -7,6 +7,7 @@ import java.util.Collections;
 
 public class Statistics {
     public static double calculateMean(ArrayList<Solve> solves) {
+        if(solves.size() == 0) return 0.0;
         double totalTime = 0;
         double numSolves = 0;
         for (Solve solve : solves) {
@@ -19,6 +20,7 @@ public class Statistics {
     }
 
     public static double calculateBest(ArrayList<Solve> solves) {
+        if(solves.size() == 0) return 0.0;
         double best = solves.get(0).time;
         for (Solve solve : solves) {
             best = (solve.time < best) ? solve.time : best;

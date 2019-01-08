@@ -170,7 +170,7 @@
             android:layout_marginTop="128dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/archive_session_button" />
+            app:layout_constraintTop_toBottomOf="@+id/archive_session_button" />
 
     </android.support.constraint.ConstraintLayout>
 
