@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.jakepf00.cubetimer.FileHelper;
@@ -79,10 +81,13 @@ public class StatisticsFragment extends Fragment {
     }
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        TextView tv = getActivity().findViewById(R.id.stats_thing);
-        String text = readStringFromFile(getResources().getString(R.string.archive_solves_file), getActivity());
+        String text = FileHelper.readStringFromFile(getResources().getString(R.string.archive_solves_file), getActivity());
+        TextView tv = getActivity().findViewById(R.id.file_contents);
         tv.setText(text);
         ArrayList<Solve> solves = FileHelper.readSolvesFromFile(getResources().getString(R.string.archive_solves_file), getActivity());
+        ArrayAdapter<Solve> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, solves);
+        ListView listView = getView().findViewById(R.id.alltime_stats_list);
+        listView.setAdapter(arrayAdapter);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
