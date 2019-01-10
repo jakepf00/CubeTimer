@@ -10,10 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.jakepf00.cubetimer.FileHelper;
 import com.jakepf00.cubetimer.R;
+import com.jakepf00.cubetimer.Solve;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import static com.jakepf00.cubetimer.FileHelper.readStringFromFile;
 
@@ -79,6 +82,7 @@ public class StatisticsFragment extends Fragment {
         TextView tv = getActivity().findViewById(R.id.stats_thing);
         String text = readStringFromFile(getResources().getString(R.string.archive_solves_file), getActivity());
         tv.setText(text);
+        ArrayList<Solve> solves = FileHelper.readSolvesFromFile(getResources().getString(R.string.archive_solves_file), getActivity());
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.jakepf00.cubetimer.Clock;
+import com.jakepf00.cubetimer.FileHelper;
 import com.jakepf00.cubetimer.R;
 import com.jakepf00.cubetimer.Solve;
 import com.jakepf00.cubetimer.Statistics;
@@ -92,7 +93,7 @@ public class TimerFragment extends Fragment {
         archiveSessionButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: save solves to a file
+                FileHelper.writeSolvesToFile(getResources().getString(R.string.archive_solves_file), solves, getActivity());
                 solves.clear();
                 arrayAdapter.notifyDataSetChanged();
                 updateStatistics(solves);
@@ -104,9 +105,6 @@ public class TimerFragment extends Fragment {
         arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, solves);
         listView = getView().findViewById(R.id.session_stats_list);
         listView.setAdapter(arrayAdapter);
-
-        writeStringToFile(getResources().getString(R.string.archive_solves_file), "This actually works", getActivity());
-
     }
     @Override
     public void onAttach(Context context) {

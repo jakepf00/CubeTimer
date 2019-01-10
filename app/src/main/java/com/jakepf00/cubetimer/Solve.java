@@ -7,7 +7,7 @@ public class Solve implements Comparable<Solve> {
     public boolean plusTwo = false;
     public String comment = "";
     public String toString() {
-        return "" + time;
+        return time + ";";
     }
 
     public int compareTo(Solve other) {
