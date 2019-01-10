@@ -2,6 +2,7 @@ package com.jakepf00.cubetimer;
 
 import android.content.Context;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -33,8 +34,9 @@ public class FileHelper {
     }
     public static void writeSolvesToFile(String fileName, ArrayList<Solve> solves, Context context) {
         FileOutputStream outputStream;
+        File file = new File(context.getFilesDir(), fileName);
         try {
-            outputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
+            outputStream = new FileOutputStream(file, true);
             for (Solve solve : solves) {
                 outputStream.write(solve.getData().getBytes());
             }
