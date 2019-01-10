@@ -36,7 +36,7 @@ public class FileHelper {
         try {
             outputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             for (Solve solve : solves) {
-                outputStream.write(solve.toString().getBytes());
+                outputStream.write(solve.getData().getBytes());
             }
             outputStream.close();
         } catch (Exception e) {
@@ -58,8 +58,21 @@ public class FileHelper {
         String[] solveStrings = text.toString().split(";");
         ArrayList<Solve> solves = new ArrayList<>();
         for (String solve : solveStrings) {
+            String[] solveData = solve.split(",");
             Solve a = new Solve();
-            a.time = Double.valueOf(solve);
+            a.time = Double.valueOf(solveData[0]);
+            if (solveData[1].length() > 2) {
+                a.scramble = solveData[1].substring(1, solveData[1].length() - 1);
+            }
+            if (solveData[2].length() > 2) {
+                a.comment = solveData[2].substring(1, solveData[2].length() - 1);
+            }
+            if (solveData[3].equals("true")) {
+                a.DNF = true;
+            }
+            if (solveData[4].equals("true")) {
+                a.plusTwo = true;
+            }
             solves.add(a);
         }
         return solves;
