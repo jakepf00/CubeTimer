@@ -15,6 +15,8 @@ import com.jakepf00.cubetimer.R;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import static com.jakepf00.cubetimer.FileHelper.readStringFromFile;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,17 +77,7 @@ public class StatisticsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         TextView tv = getActivity().findViewById(R.id.stats_thing);
-        StringBuilder text = new StringBuilder();
-        int thing;
-        try {
-            InputStream input = getActivity().openFileInput(getResources().getString(R.string.archive_solves_file));
-            while ((thing = input.read()) != -1) {
-                char character = (char) thing;
-                text.append(character);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String text = readStringFromFile(getResources().getString(R.string.archive_solves_file), getActivity());
         tv.setText(text);
     }
 

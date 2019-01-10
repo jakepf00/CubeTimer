@@ -25,6 +25,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
+import static com.jakepf00.cubetimer.FileHelper.writeStringToFile;
+
 public class TimerFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
@@ -103,15 +105,7 @@ public class TimerFragment extends Fragment {
         listView = getView().findViewById(R.id.session_stats_list);
         listView.setAdapter(arrayAdapter);
 
-        String fileContents = "Hello world!";
-        FileOutputStream outputStream;
-        try {
-            outputStream = getActivity().openFileOutput(getResources().getString(R.string.archive_solves_file), Context.MODE_PRIVATE);
-            outputStream.write(fileContents.getBytes());
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        writeStringToFile(getResources().getString(R.string.archive_solves_file), "This actually works", getActivity());
 
     }
     @Override
