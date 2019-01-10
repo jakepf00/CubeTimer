@@ -22,6 +22,8 @@ import com.jakepf00.cubetimer.fragment.SettingsFragment;
 import com.jakepf00.cubetimer.fragment.StatisticsFragment;
 import com.jakepf00.cubetimer.fragment.TimerFragment;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         TimerFragment.OnFragmentInteractionListener,
@@ -54,6 +56,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        File file = new File(getFilesDir(), getResources().getString(R.string.archive_solves_file));
     }
 
     @Override

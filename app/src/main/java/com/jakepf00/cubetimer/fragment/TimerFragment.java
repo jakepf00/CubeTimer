@@ -21,6 +21,8 @@ import com.jakepf00.cubetimer.R;
 import com.jakepf00.cubetimer.Solve;
 import com.jakepf00.cubetimer.Statistics;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 public class TimerFragment extends Fragment {
@@ -100,6 +102,17 @@ public class TimerFragment extends Fragment {
         arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, solves);
         listView = getView().findViewById(R.id.session_stats_list);
         listView.setAdapter(arrayAdapter);
+
+        String fileContents = "Hello world!";
+        FileOutputStream outputStream;
+        try {
+            outputStream = getActivity().openFileOutput(getResources().getString(R.string.archive_solves_file), Context.MODE_PRIVATE);
+            outputStream.write(fileContents.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
     @Override
     public void onAttach(Context context) {

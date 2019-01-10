@@ -18,4 +18,6 @@
     <string name="session_mean">Current mean:</string>
     <string name="release_to_start">Release to start timer</string>
     <string name="timing">Timing</string>
+
+    <string name="archive_solves_file">archivedSolves</string>
 </resources>

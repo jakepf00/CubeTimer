@@ -3,12 +3,17 @@ package com.jakepf00.cubetimer.fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.jakepf00.cubetimer.R;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 
 /**
@@ -63,10 +68,25 @@ public class StatisticsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_statistics, container, false);
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        TextView tv = getActivity().findViewById(R.id.stats_thing);
+        StringBuilder text = new StringBuilder();
+        int thing;
+        try {
+            InputStream input = getActivity().openFileInput(getResources().getString(R.string.archive_solves_file));
+            while ((thing = input.read()) != -1) {
+                char character = (char) thing;
+                text.append(character);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        tv.setText(text);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
