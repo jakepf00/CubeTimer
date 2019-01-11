@@ -8,8 +8,7 @@
     android:layout_gravity="bottom"
     android:gravity="bottom"
     tools:context=".fragment.TimerFragment"
-    app:umanoDragView="@id/dragView"
-    >
+    app:umanoDragView="@id/session_dragView">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/timer_layout"
@@ -140,7 +139,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/dragView">
+        android:id="@+id/session_dragView">
 
         <TextView
             android:id="@+id/stats_slide_text"
