@@ -22,11 +22,7 @@ import com.jakepf00.cubetimer.R;
 import com.jakepf00.cubetimer.Solve;
 import com.jakepf00.cubetimer.Statistics;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
-
-import static com.jakepf00.cubetimer.FileHelper.writeStringToFile;
 
 public class TimerFragment extends Fragment {
 
@@ -125,7 +121,7 @@ public class TimerFragment extends Fragment {
     }
 
     private void updateStatistics(ArrayList<Solve> solves) {
-        TextView meanTextView = getActivity().findViewById(R.id.current_mean_text);
+        TextView meanTextView = getActivity().findViewById(R.id.alltime_mean_text);
         double mean = Statistics.calculateMean(solves);
         String meanText = "" + mean;
         if (mean == 0.0) {
@@ -134,7 +130,7 @@ public class TimerFragment extends Fragment {
             meanTextView.setText(meanText);
         }
 
-        TextView bestTextView = getActivity().findViewById(R.id.session_best_text);
+        TextView bestTextView = getActivity().findViewById(R.id.alltime_best_text);
         double best = Statistics.calculateBest(solves);
         String bestText = "" + best;
         if (best == 0.0) {
@@ -143,7 +139,7 @@ public class TimerFragment extends Fragment {
             bestTextView.setText(bestText);
         }
 
-        TextView averageFiveTextView = getActivity().findViewById(R.id.current_ao5_text);
+        TextView averageFiveTextView = getActivity().findViewById(R.id.best_ao5_text);
         double averageFive = Statistics.calculateAverage(solves, 5);
         String averageFiveText = "" + averageFive;
         if (averageFive == 0.0) {
@@ -152,7 +148,7 @@ public class TimerFragment extends Fragment {
             averageFiveTextView.setText(averageFiveText);
         }
 
-        TextView averageTwelveTextView = getActivity().findViewById(R.id.current_ao12_text);
+        TextView averageTwelveTextView = getActivity().findViewById(R.id.best_ao12_text);
         double averageTwelve = Statistics.calculateAverage(solves, 12);
         String averageTwelveText = "" + averageTwelve;
         averageTwelveTextView.setText(averageTwelveText);

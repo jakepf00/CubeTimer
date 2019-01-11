@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.jakepf00.cubetimer.FileHelper;
 import com.jakepf00.cubetimer.R;
 import com.jakepf00.cubetimer.Solve;
+import com.jakepf00.cubetimer.Statistics;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -84,10 +85,21 @@ public class StatisticsFragment extends Fragment {
         String text = FileHelper.readStringFromFile(getResources().getString(R.string.archive_solves_file), getActivity());
         TextView tv = getActivity().findViewById(R.id.file_contents);
         tv.setText(text);
+
         ArrayList<Solve> solves = FileHelper.readSolvesFromFile(getResources().getString(R.string.archive_solves_file), getActivity());
         ArrayAdapter<Solve> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, solves);
         ListView listView = getView().findViewById(R.id.alltime_stats_list);
         listView.setAdapter(arrayAdapter);
+
+        TextView bestTextView = getActivity().findViewById(R.id.alltime_best_text);
+        double best = Statistics.calculateBest(solves);
+        String bestText = best + "";
+        bestTextView.setText(bestText);
+        // TODO: figure out best Ao5 and Ao12
+        TextView meanTextView = getActivity().findViewById(R.id.alltime_mean_text);
+        double mean = Statistics.calculateMean(solves);
+        String meanText = mean + "";
+        meanTextView.setText(meanText);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

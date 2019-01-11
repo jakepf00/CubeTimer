@@ -39,7 +39,7 @@
             android:layout_marginBottom="16dp"
             android:text="@string/session_mean"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/current_mean_text" />
+            app:layout_constraintEnd_toStartOf="@+id/alltime_mean_text" />
 
         <TextView
             android:id="@+id/textView5"
@@ -50,7 +50,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/session_Ao12"
             app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintEnd_toStartOf="@+id/current_ao12_text" />
+            app:layout_constraintEnd_toStartOf="@+id/best_ao12_text" />
 
         <TextView
             android:id="@+id/textView6"
@@ -61,7 +61,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/session_Ao5"
             app:layout_constraintBottom_toTopOf="@+id/textView5"
-            app:layout_constraintEnd_toStartOf="@+id/current_ao5_text" />
+            app:layout_constraintEnd_toStartOf="@+id/best_ao5_text" />
 
         <TextView
             android:id="@+id/textView7"
@@ -72,7 +72,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/session_best"
             app:layout_constraintBottom_toTopOf="@+id/textView6"
-            app:layout_constraintEnd_toStartOf="@+id/session_best_text" />
+            app:layout_constraintEnd_toStartOf="@+id/alltime_best_text" />
 
         <TextView
             android:id="@+id/time_text"
@@ -92,7 +92,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/current_mean_text"
+            android:id="@+id/alltime_mean_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -103,36 +103,36 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/current_ao12_text"
+            android:id="@+id/best_ao12_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="8dp"
             android:text="@string/no_data_available"
-            app:layout_constraintBottom_toTopOf="@+id/current_mean_text"
+            app:layout_constraintBottom_toTopOf="@+id/alltime_mean_text"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/current_ao5_text"
+            android:id="@+id/best_ao5_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="8dp"
             android:text="@string/no_data_available"
-            app:layout_constraintBottom_toTopOf="@+id/current_ao12_text"
+            app:layout_constraintBottom_toTopOf="@+id/best_ao12_text"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/session_best_text"
+            android:id="@+id/alltime_best_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="8dp"
             android:text="@string/no_data_available"
-            app:layout_constraintBottom_toTopOf="@+id/current_ao5_text"
+            app:layout_constraintBottom_toTopOf="@+id/best_ao5_text"
             app:layout_constraintEnd_toEndOf="parent" />
 
     </android.support.constraint.ConstraintLayout>

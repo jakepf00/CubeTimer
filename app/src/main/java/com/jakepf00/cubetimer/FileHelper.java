@@ -75,7 +75,7 @@ public class FileHelper {
             if (solveData[4].equals("true")) {
                 a.plusTwo = true;
             }
-            solves.add(a);
+            solves.add(0, a);
         }
         return solves;
     }

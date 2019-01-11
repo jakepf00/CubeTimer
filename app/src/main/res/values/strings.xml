@@ -1,4 +1,5 @@
 <resources>
+    <!-- Global -->
     <string name="app_name">Cube Timer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -6,7 +7,9 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="archive_solves_file">archivedSolves</string>
 
+    <!-- Timer Fragment -->
     <string name="swipe_up_for_solves">Swipe up for session solves</string>
     <string name="archive_session">Archive session</string>
     <string name="no_data_available">--</string>
@@ -19,5 +22,10 @@
     <string name="release_to_start">Release to start timer</string>
     <string name="timing">Timing</string>
 
-    <string name="archive_solves_file">archivedSolves</string>
+    <!-- Statistics Fragment -->
+    <string name="swipe_up_alltime_solves">Swipe up for all solves</string>
+    <string name="alltime_best">Best:</string>
+    <string name="alltime_Ao5">Best Ao5:</string>
+    <string name="alltime_Ao12">Best Ao12:</string>
+    <string name="alltime_mean">Mean:</string>
 </resources>
