@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jakepf00.cubetimer.AlgListAdapter;
+import com.jakepf00.cubetimer.Algorithm;
 import com.jakepf00.cubetimer.R;
 
 import java.util.ArrayList;
@@ -58,12 +59,12 @@ public class ReferenceFragment extends Fragment {
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
-        ArrayList<String> thing = new ArrayList<>();
-        thing.add("hi");
-        thing.add("hi2");
-        thing.add("asdf");
-        thing.add("test");
-        thing.add("abc");
+        ArrayList<Algorithm> thing = new ArrayList<>();
+        thing.add(new Algorithm("hi"));
+        thing.add(new Algorithm("hi2"));
+        thing.add(new Algorithm("asdf"));
+        thing.add(new Algorithm("test"));
+        thing.add(new Algorithm("abc"));
         mAdapter = new AlgListAdapter(thing);
         mRecyclerView.setAdapter(mAdapter);
     }
