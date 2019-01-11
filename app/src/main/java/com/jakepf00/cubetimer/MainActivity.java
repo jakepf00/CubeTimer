@@ -2,18 +2,16 @@ package com.jakepf00.cubetimer;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
+import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -56,6 +54,10 @@ public class MainActivity extends AppCompatActivity
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setSelection(1);
+
+        FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+        tx.replace(R.id.main_content_frame, TimerFragment.newInstance());
+        tx.commit();
     }
 
     @Override
@@ -69,11 +71,11 @@ public class MainActivity extends AppCompatActivity
     }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Fragment fragment;
-        Class fragmentClass = null;
+        Class fragmentClass;
 
         if (id == R.id.nav_timer) {
             fragmentClass = TimerFragment.class;
@@ -85,8 +87,8 @@ public class MainActivity extends AppCompatActivity
             fragmentClass = ExportFragment.class;
         } else if (id == R.id.nav_settings) {
             fragmentClass = SettingsFragment.class;
-        } else if (id == R.id.nav_share) {
-
+        } else { // if (id == R.id.nav_share) {}
+            fragmentClass = TimerFragment.class;
         }
 
         try {
