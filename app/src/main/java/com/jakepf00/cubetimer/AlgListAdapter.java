@@ -26,7 +26,7 @@ public class AlgListAdapter extends RecyclerView.Adapter<AlgListAdapter.AlgViewH
     @Override
     @NonNull
     public AlgListAdapter.AlgViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.alg_list_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.reference_list_item, parent, false);
         return new AlgViewHolder(v);
     }
 
