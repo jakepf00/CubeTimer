@@ -25,18 +25,26 @@ public class AlgUtils {
             case "PLL":
                 switch (alg) {
                     case 0:
-
+                        return "R' F R' B2 R F' R' B2 R2";
                     case 1:
-
+                        return "R B' R F2 R' B R F2 R2";
                     default:
                         return "";
                 }
             case "OLL":
                 switch (alg) {
+                    case 0:
+                        return "(R U2 R') (R' F R F') U2 (R' F R F')";
                     case 1:
-
+                        return "F (R U R' U') F' f (R U R' U') f'";
                     case 2:
-
+                        return "f (R U R' U') f' U' F (R U R' U') F'";
+                    case 3:
+                        return "f (R U R' U') f' U F (R U R' U') F'";
+                    case 4:
+                        return "r' U2 R U R' U r";
+                    case 5:
+                        return "r U2 R' U' R U' r'";
                     default:
                         return "";
                 }

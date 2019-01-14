@@ -3,6 +3,7 @@ package com.jakepf00.cubetimer;
 public class Algorithm {
     private String name;
     private String algorithm;
+
     public Algorithm(String name) {
         this.name = name;
     }
@@ -10,7 +11,12 @@ public class Algorithm {
         this.name = name;
         this.algorithm = algorithm;
     }
+
     public String toString() {
         return name;
+    }
+    public String getName() { return name; }
+    public String getAlgorithm() {
+        return algorithm;
     }
 }

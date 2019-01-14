@@ -14,9 +14,11 @@ public class AlgListAdapter extends RecyclerView.Adapter<AlgListAdapter.AlgViewH
 
     static class AlgViewHolder extends RecyclerView.ViewHolder {
         TextView name;
+        TextView algText;
         AlgViewHolder(View v) {
             super(v);
             name = v.findViewById(R.id.alg_name);
+            algText = v.findViewById(R.id.alg_text);
         }
     }
 
@@ -32,7 +34,8 @@ public class AlgListAdapter extends RecyclerView.Adapter<AlgListAdapter.AlgViewH
 
     @Override
     public void onBindViewHolder(@NonNull AlgViewHolder holder, int position) {
-        holder.name.setText(algSet.get(position).toString());
+        holder.name.setText(algSet.get(position).getName());
+        holder.algText.setText(algSet.get(position).getAlgorithm());
     }
     @Override
     public int getItemCount() {
