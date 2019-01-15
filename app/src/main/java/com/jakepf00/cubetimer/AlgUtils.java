@@ -3,7 +3,15 @@ package com.jakepf00.cubetimer;
 import java.util.ArrayList;
 
 public class AlgUtils {
-    public static ArrayList<Algorithm> getPLLs() {
+    public static ArrayList<Algorithm> getSubset(String subset) {
+        switch(subset) {
+            case "OLL": return getOLLs();
+            case "PLL": return getPLLs();
+            default: return new ArrayList<>();
+        }
+    }
+
+    private static ArrayList<Algorithm> getPLLs() {
         ArrayList<Algorithm> algs = new ArrayList<>();
         for (int i = 0; i < 21; i++) {
             algs.add(new Algorithm(PLLs[i], getAlg("PLL", i)));
@@ -11,7 +19,7 @@ public class AlgUtils {
         return algs;
     }
 
-    public static ArrayList<Algorithm> getOLLs() {
+    private static ArrayList<Algorithm> getOLLs() {
         ArrayList<Algorithm> algs = new ArrayList<>();
         for (int i = 0; i < 57; i++) {
             String name = "OLL " + (i + 1);

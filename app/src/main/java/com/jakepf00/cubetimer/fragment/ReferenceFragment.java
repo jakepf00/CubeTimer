@@ -11,6 +11,8 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.jakepf00.cubetimer.AlgListAdapter;
 import com.jakepf00.cubetimer.AlgUtils;
@@ -54,13 +56,29 @@ public class ReferenceFragment extends Fragment {
     }
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        Spinner cubeChooser = getActivity().findViewById(R.id.cube_chooser);
+        String cube = cubeChooser.getSelectedItem().toString();
+        ArrayList<String> subsets = new ArrayList<>();
+        switch(cube) {
+            case "2x2":
+                subsets.add("Ortega");
+                break;
+            case "3x3":
+                subsets.add("OLL");
+                subsets.add("PLL");
+                break;
+            default:
+                subsets.add("no algs available");
+        }
+        Spinner subsetChooser = getActivity().findViewById(R.id.subset_chooser);
+        ArrayAdapter<String> subsetChooserAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, subsets);
+        subsetChooser.setAdapter(subsetChooserAdapter);
+        String subset = subsetChooser.getSelectedItem().toString();
+
         mRecyclerView = getActivity().findViewById(R.id.alg_recycler_view);
-
-
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(gridLayoutManager);
-
-        ArrayList<Algorithm> thing = AlgUtils.getPLLs();
+        ArrayList<Algorithm> thing = AlgUtils.getSubset(subset);
         mAdapter = new AlgListAdapter(thing);
         mRecyclerView.setAdapter(mAdapter);
     }
