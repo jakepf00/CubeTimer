@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class ReferenceFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerAdapter;
-
+    private Spinner subsetChooser;
     private OnFragmentInteractionListener mListener;
 
     public ReferenceFragment() {
@@ -60,7 +60,7 @@ public class ReferenceFragment extends Fragment {
             default:
                 subsets.add("no algs available");
         }
-        Spinner subsetChooser = getActivity().findViewById(R.id.subset_chooser);
+        subsetChooser = getActivity().findViewById(R.id.subset_chooser);
         ArrayAdapter<String> subsetChooserAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, subsets);
         subsetChooser.setAdapter(subsetChooserAdapter);
 
@@ -68,6 +68,7 @@ public class ReferenceFragment extends Fragment {
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(recyclerAdapter);
+
         subsetChooser.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -75,6 +76,29 @@ public class ReferenceFragment extends Fragment {
                 ArrayList<Algorithm> thing = AlgUtils.getSubset(subset);
                 recyclerAdapter = new AlgListAdapter(thing);
                 recyclerView.swapAdapter(recyclerAdapter, false);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+        cubeChooser.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String cube = (String) parent.getItemAtPosition(position);
+                ArrayList<String> subsets = new ArrayList<>();
+                switch(cube) {
+                    case "2x2":
+                        subsets.add("Ortega");
+                        break;
+                    case "3x3":
+                        subsets.add("OLL");
+                        subsets.add("PLL");
+                        break;
+                    default:
+                        subsets.add("no algs available");
+                }
+                ArrayAdapter<String> subsetChooserAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, subsets);
+                subsetChooser.setAdapter(subsetChooserAdapter);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
