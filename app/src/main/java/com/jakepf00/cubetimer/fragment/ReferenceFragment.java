@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -22,19 +21,9 @@ import com.jakepf00.cubetimer.R;
 
 import java.util.ArrayList;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ReferenceFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ReferenceFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ReferenceFragment extends Fragment {
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter recyclerAdapter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -75,23 +64,20 @@ public class ReferenceFragment extends Fragment {
         ArrayAdapter<String> subsetChooserAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, subsets);
         subsetChooser.setAdapter(subsetChooserAdapter);
 
-        mRecyclerView = getActivity().findViewById(R.id.alg_recycler_view);
+        recyclerView = getActivity().findViewById(R.id.alg_recycler_view);
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(gridLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setAdapter(recyclerAdapter);
         subsetChooser.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String subset = (String) parent.getItemAtPosition(position);
                 ArrayList<Algorithm> thing = AlgUtils.getSubset(subset);
-                mAdapter = new AlgListAdapter(thing);
-                mRecyclerView.swapAdapter(mAdapter, false);
+                recyclerAdapter = new AlgListAdapter(thing);
+                recyclerView.swapAdapter(recyclerAdapter, false);
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parent) {}
         });
     }
     public void onButtonPressed(Uri uri) {
