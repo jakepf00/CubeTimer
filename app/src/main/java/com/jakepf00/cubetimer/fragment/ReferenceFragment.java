@@ -11,6 +11,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -73,14 +74,25 @@ public class ReferenceFragment extends Fragment {
         Spinner subsetChooser = getActivity().findViewById(R.id.subset_chooser);
         ArrayAdapter<String> subsetChooserAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, subsets);
         subsetChooser.setAdapter(subsetChooserAdapter);
-        String subset = subsetChooser.getSelectedItem().toString();
 
         mRecyclerView = getActivity().findViewById(R.id.alg_recycler_view);
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(gridLayoutManager);
-        ArrayList<Algorithm> thing = AlgUtils.getSubset(subset);
-        mAdapter = new AlgListAdapter(thing);
         mRecyclerView.setAdapter(mAdapter);
+        subsetChooser.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String subset = (String) parent.getItemAtPosition(position);
+                ArrayList<Algorithm> thing = AlgUtils.getSubset(subset);
+                mAdapter = new AlgListAdapter(thing);
+                mRecyclerView.swapAdapter(mAdapter, false);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
