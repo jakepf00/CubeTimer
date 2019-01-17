@@ -6,4 +6,10 @@
 
     <!-- Reference -->
     <color name="grey_cube">#676767</color>
+    <color name="white_cube">#ffffff</color>
+    <color name="yellow_cube">#fff200</color>
+    <color name="blue_cube">#3873ff</color>
+    <color name="green_cube">#1cff41</color>
+    <color name="red_cube">#ff001d</color>
+    <color name="orange_cube">#ff7f00</color>
 </resources>
