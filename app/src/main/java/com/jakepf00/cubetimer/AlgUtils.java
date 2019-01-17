@@ -67,14 +67,73 @@ public class AlgUtils {
         int[] colors;
         switch(subset) {
             case "PLL":
-                switch(alg) {
-                    case 0: colors = new int[] {y,y,y,y,y,y,y,y,y,b,b,b,r,r,r,gr,gr,gr,o,o,o}; break;
+                switch(PLLs[alg]) {
+                    case "Aa": colors = new int[] {y,y,y,y,y,y,y,y,y,gr,o,gr,o,b,b,r,r,o,r,gr,b}; break;
+                    case "Ab": colors = new int[] {y,y,y,y,y,y,y,y,y,o,o,r,b,b,r,gr,r,gr,b,gr,o}; break;
+                    case "E": colors = new int[] {y,y,y,y,y,y,y,y,y,o,gr,r,b,o,gr,o,b,r,b,r,gr}; break;
+                    case "F": colors = new int[] {y,y,y,y,y,y,y,y,y,o,o,o,b,gr,r,gr,r,b,gr,b,r}; break;
                     default: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g};
                 }
                 break;
             case "OLL":
                 switch(alg) {
-                    case 1:
+                    case 1:  colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 2:  colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 3:  colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 4:  colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 5:  colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 6:  colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 7:  colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 8:  colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 9:  colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 10: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 11: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 12: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 13: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 14: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 15: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 16: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 17: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 18: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 19: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 20: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 21: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 22: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 23: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 24: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 25: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 26: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 27: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 28: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 29: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 30: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 31: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 32: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 33: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 34: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 35: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 36: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 37: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 38: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 39: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 40: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 41: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 42: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 43: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 44: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 45: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 46: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 47: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 48: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 49: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 50: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 51: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 52: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 53: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 54: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 55: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 56: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
+                    case 57: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g}; break;
                     default: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g};
                 }
                 break;
