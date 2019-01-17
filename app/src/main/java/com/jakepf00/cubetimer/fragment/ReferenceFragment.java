@@ -62,6 +62,7 @@ public class ReferenceFragment extends Fragment {
         }
         subsetChooser = getActivity().findViewById(R.id.subset_chooser);
         ArrayAdapter<String> subsetChooserAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, subsets);
+        subsetChooserAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         subsetChooser.setAdapter(subsetChooserAdapter);
 
         recyclerView = getActivity().findViewById(R.id.alg_recycler_view);
@@ -98,6 +99,7 @@ public class ReferenceFragment extends Fragment {
                         subsets.add("no algs available");
                 }
                 ArrayAdapter<String> subsetChooserAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, subsets);
+                subsetChooserAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 subsetChooser.setAdapter(subsetChooserAdapter);
             }
             @Override
