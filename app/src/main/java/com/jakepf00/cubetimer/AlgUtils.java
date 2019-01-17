@@ -1,29 +1,31 @@
 package com.jakepf00.cubetimer;
 
+import android.content.res.Resources;
+
 import java.util.ArrayList;
 
 public class AlgUtils {
-    public static ArrayList<Algorithm> getSubset(String subset) {
+    public static ArrayList<Algorithm> getSubset(String subset, Resources resources) {
         switch(subset) {
-            case "OLL": return getOLLs();
-            case "PLL": return getPLLs();
+            case "OLL": return getOLLs(resources);
+            case "PLL": return getPLLs(resources);
             default: return new ArrayList<>();
         }
     }
 
-    private static ArrayList<Algorithm> getPLLs() {
+    private static ArrayList<Algorithm> getPLLs(Resources resources) {
         ArrayList<Algorithm> algs = new ArrayList<>();
         for (int i = 0; i < 21; i++) {
-            algs.add(new Algorithm(PLLs[i], getAlg("PLL", i)));
+            algs.add(new Algorithm(PLLs[i], getAlg("PLL", i), getColors("PLL", i, resources)));
         }
         return algs;
     }
 
-    private static ArrayList<Algorithm> getOLLs() {
+    private static ArrayList<Algorithm> getOLLs(Resources resources) {
         ArrayList<Algorithm> algs = new ArrayList<>();
         for (int i = 1; i <= 57; i++) {
             String name = "OLL " + i;
-            algs.add(new Algorithm(name, getAlg("OLL", i)));
+            algs.add(new Algorithm(name, getAlg("OLL", i), getColors("OLL", i, resources)));
         }
         return algs;
     }
@@ -53,6 +55,32 @@ public class AlgUtils {
             default:
                 return "";
         }
+    }
+    private static int[] getColors(String subset, int alg, Resources resources) {
+        int g = resources.getColor(R.color.grey_cube);
+        int w = resources.getColor(R.color.white_cube);
+        int y = resources.getColor(R.color.yellow_cube);
+        int b = resources.getColor(R.color.blue_cube);
+        int gr = resources.getColor(R.color.green_cube);
+        int r = resources.getColor(R.color.red_cube);
+        int o = resources.getColor(R.color.orange_cube);
+        int[] colors;
+        switch(subset) {
+            case "PLL":
+                switch(alg) {
+                    case 0: colors = new int[] {y,y,y,y,y,y,y,y,y,b,b,b,r,r,r,gr,gr,gr,o,o,o}; break;
+                    default: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g};
+                }
+                break;
+            case "OLL":
+                switch(alg) {
+                    case 1:
+                    default: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g};
+                }
+                break;
+            default: colors = new int[] {g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g};
+        }
+        return colors;
     }
 
     private static String[] PLLs = {"Aa", "Ab", "E", "F", "Ga", "Gb", "Gc", "Gd", "H", "Ja", "Jb", "Na", "Nb", "Ra", "Rb", "T", "Ua", "Ub", "V", "Y", "Z"};
