@@ -33,9 +33,28 @@ public class AlgUtils {
     private static String getAlg(String subset, int alg) {
         switch (subset) {
             case "PLL":
-                switch (alg) {
-                    case 0: return "R' F R' B2 R F' R' B2 R2";
-                    case 1: return "R B' R F2 R' B R F2 R2";
+                switch (PLLs[alg]) {
+                    case "Aa": return "R' F R' B2 R F' R' B2 R2";
+                    case "Ab": return "R B' R F2 R' B R F2 R2";
+                    case "E": return "x' R U' R' D U R' D' R U R' D R U' R' D' x";
+                    case "F": return "R' U2 R' d' R' F' R2 U' R' U R' F R U' F";
+                    case "Ga": return "";
+                    case "Gb": return "";
+                    case "Gc": return "";
+                    case "Gd": return "";
+                    case "H": return "";
+                    case "Ja": return "";
+                    case "Jb": return "";
+                    case "Na": return "";
+                    case "Nb": return "";
+                    case "Ra": return "";
+                    case "Rb": return "";
+                    case "T": return "";
+                    case "Ua": return "";
+                    case "Ub": return "";
+                    case "V": return "";
+                    case "Y": return "";
+                    case "Z": return "";
                     default: return "";
                 }
             case "OLL":
@@ -77,9 +96,9 @@ public class AlgUtils {
                     case "Gc": colors = new int[] {y,y,y,y,y,y,y,y,y,r,b,b,gr,o,gr,o,r,b,o,gr,r}; break;
                     case "Gd": colors = new int[] {y,y,y,y,y,y,y,y,y,b,gr,o,r,o,r,gr,r,o,gr,b,b}; break;
                     case "H": colors = new int[] {y,y,y,y,y,y,y,y,y,o,r,o,b,gr,b,r,o,r,gr,b,gr}; break;
-                    case "Ja": colors = new int[] {y,y,y,y,y,y,y,y,y,gr,gr,gr,o,o,b,r,r,o,r,b,b}; break;
+                    case "Ja": colors = new int[] {y,y,y,y,y,y,y,y,y,o,r,r,b,b,r,gr,gr,gr,b,o,o}; break;
                     case "Jb": colors = new int[] {y,y,y,y,y,y,y,y,y,o,o,gr,b,b,b,r,gr,gr,r,r,o}; break;
-                    case "Na": colors = new int[] {y,y,y,y,y,y,y,y,y,o,o,r,b,gr,gr,o,r,r,b,b,g}; break;
+                    case "Na": colors = new int[] {y,y,y,y,y,y,y,y,y,o,o,r,b,gr,gr,o,r,r,b,b,gr}; break;
                     case "Nb": colors = new int[] {y,y,y,y,y,y,y,y,y,r,o,o,gr,gr,b,r,r,o,gr,b,b}; break;
                     case "Ra": colors = new int[] {y,y,y,y,y,y,y,y,y,b,r,gr,r,o,gr,o,gr,o,r,b,b}; break;
                     case "Rb": colors = new int[] {y,y,y,y,y,y,y,y,y,gr,o,b,o,b,b,r,gr,r,o,r,gr}; break;
