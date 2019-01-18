@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.jakepf00.cubetimer.Clock;
 import com.jakepf00.cubetimer.FileHelper;
 import com.jakepf00.cubetimer.R;
+import com.jakepf00.cubetimer.Scrambler;
 import com.jakepf00.cubetimer.Solve;
 import com.jakepf00.cubetimer.Statistics;
 
@@ -36,6 +37,7 @@ public class TimerFragment extends Fragment {
     ArrayAdapter<Solve> arrayAdapter;
     ListView listView;
     private String cube;
+    private TextView scrambleText;
 
     public TimerFragment() {
 
@@ -70,6 +72,7 @@ public class TimerFragment extends Fragment {
                             solves.add(0, solve);
                             arrayAdapter.notifyDataSetChanged();
                             updateStatistics(solves);
+                            scrambleText.setText(Scrambler.generateScramble(cube));
                         } else {
                             tv.setText(R.string.release_to_start);
                         }
@@ -116,12 +119,16 @@ public class TimerFragment extends Fragment {
                 updateStatistics(solves);
                 TextView tv = getView().findViewById(R.id.time_text);
                 tv.setText(R.string.touch_to_start);
+                scrambleText.setText(Scrambler.generateScramble(cube));
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
+
+        scrambleText = getActivity().findViewById(R.id.scramble_text);
+        scrambleText.setText(Scrambler.generateScramble(cube));
     }
     @Override
     public void onAttach(Context context) {
