@@ -11,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.jakepf00.cubetimer.Clock;
@@ -33,6 +35,7 @@ public class TimerFragment extends Fragment {
     ArrayList<Solve> solves = new ArrayList<>();
     ArrayAdapter<Solve> arrayAdapter;
     ListView listView;
+    private String cube;
 
     public TimerFragment() {
 
@@ -89,7 +92,7 @@ public class TimerFragment extends Fragment {
         archiveSessionButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FileHelper.writeSolvesToFile(getResources().getString(R.string.archive_solves_file), solves, getActivity());
+                FileHelper.writeSolvesToFile(cube, solves, getContext());
                 solves.clear();
                 arrayAdapter.notifyDataSetChanged();
                 updateStatistics(solves);
@@ -98,9 +101,27 @@ public class TimerFragment extends Fragment {
             }
         });
 
-        arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, solves);
+        arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, solves);
         listView = getView().findViewById(R.id.session_stats_list);
         listView.setAdapter(arrayAdapter);
+
+        Spinner cubeChooser = getActivity().findViewById(R.id.cube_chooser);
+        cube = cubeChooser.getSelectedItem().toString();
+        cubeChooser.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                cube = (String) parent.getItemAtPosition(position);
+                solves.clear();
+                arrayAdapter.notifyDataSetChanged();
+                updateStatistics(solves);
+                TextView tv = getView().findViewById(R.id.time_text);
+                tv.setText(R.string.touch_to_start);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
     @Override
     public void onAttach(Context context) {

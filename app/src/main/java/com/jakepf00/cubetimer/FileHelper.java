@@ -32,9 +32,9 @@ public class FileHelper {
         }
         return text.toString();
     }
-    public static void writeSolvesToFile(String fileName, ArrayList<Solve> solves, Context context) {
+    public static void writeSolvesToFile(String cube, ArrayList<Solve> solves, Context context) {
         FileOutputStream outputStream;
-        File file = new File(context.getFilesDir(), fileName);
+        File file = new File(context.getFilesDir(), cube); // use cube name as file name
         try {
             outputStream = new FileOutputStream(file, true);
             for (Solve solve : solves) {
