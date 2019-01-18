@@ -38,23 +38,23 @@ public class AlgUtils {
                     case "Ab": return "R B' R F2 R' B R F2 R2";
                     case "E": return "x' R U' R' D U R' D' R U R' D R U' R' D' x";
                     case "F": return "R' U2 R' d' R' F' R2 U' R' U R' F R U' F";
-                    case "Ga": return "";
-                    case "Gb": return "";
-                    case "Gc": return "";
-                    case "Gd": return "";
-                    case "H": return "";
-                    case "Ja": return "";
-                    case "Jb": return "";
-                    case "Na": return "";
-                    case "Nb": return "";
-                    case "Ra": return "";
-                    case "Rb": return "";
-                    case "T": return "";
-                    case "Ua": return "";
-                    case "Ub": return "";
-                    case "V": return "";
-                    case "Y": return "";
-                    case "Z": return "";
+                    case "Ga": return "R2 u R' U R' U' R u' R2 y L' U L";
+                    case "Gb": return "R' U' R y R2 u R' U R U' R u' R2";
+                    case "Gc": return "R2' u' R U' R U R' u R2 y R U' R'";
+                    case "Gd": return "R U R' y' R2 u' R U' R' U R' u R2";
+                    case "H": return "M2 U' M2 U2 M2 U' M2";
+                    case "Ja": return "R' U L' U2 R U' R' U2 R L";
+                    case "Jb": return "R U R' F' R U R' U' R' F R2 U' R' U'";
+                    case "Na": return "z U R' D R2 U' R U D' R' D R2 U' R D'";
+                    case "Nb": return "z U' R D' R2 U R' D U' R D' R2 U R' D";
+                    case "Ra": return "L U2 L' U2 L F' L' U' L U L F L2 ";
+                    case "Rb": return "R' U2 R U2 R' F R U R' U' R' F' R2 U'";
+                    case "T": return "R U R' U' R' F R2 U' R' U' R U R' F'";
+                    case "Ua": return "R U' R U R U R U' R' U' R2";
+                    case "Ub": return "R2 U R U R' U' R' U' R' U R' ";
+                    case "V": return "R' U R' d' R' F' R2 U' R' U R' F R F";
+                    case "Y": return "F R U' R' U' R U R' F' R U R' U' R' F R F'";
+                    case "Z": return "M2 U' M2 U' M' U2 M2 U2 M'";
                     default: return "";
                 }
             case "OLL":
@@ -69,6 +69,7 @@ public class AlgUtils {
                     case 8: return "R U2 R' U2 R' F R F'";
                     case 9: return "R U R' U' R' F R2 U R' U' F'";
                     case 10: return "R U R' U R' F R F' R U2 R'";
+                    case 11: return "";
                     default: return "";
                 }
             default:
