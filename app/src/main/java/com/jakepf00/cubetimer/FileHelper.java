@@ -45,11 +45,12 @@ public class FileHelper {
             e.printStackTrace();
         }
     }
-    public static ArrayList<Solve> readSolvesFromFile(String fileName, Context context) {
+    public static ArrayList<Solve> readSolvesFromFile(String cube, Context context) {
+        File file = new File(context.getFilesDir(), cube);
         StringBuilder text = new StringBuilder();
         int thing;
         try {
-            InputStream input = context.openFileInput(fileName);
+            InputStream input = context.openFileInput(cube);
             while ((thing = input.read()) != -1) {
                 char character = (char) thing;
                 text.append(character);
