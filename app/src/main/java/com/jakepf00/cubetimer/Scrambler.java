@@ -5,7 +5,7 @@ import java.util.Random;
 public class Scrambler {
     public static String generateScramble(String cube) {
         switch (cube) {
-            case "2x2": return "1 2";
+            case "2x2": return generateScramble2x2();
             case "3x3": return generateScramble3x3();
             case "4x4": return "1 2 3 4";
             case "5x5": return "1 2 3 4 5";
@@ -32,6 +32,26 @@ public class Scrambler {
                 case 3: scramble.append('L'); break;
                 case 4: scramble.append('D'); break;
                 case 5: scramble.append('B'); break;
+            }
+            number = rand.nextInt(3);
+            switch (number) {
+                case 0: scramble.append('\''); break;
+                case 1: scramble.append('2'); break;
+            }
+            scramble.append(' ');
+        }
+        return scramble.toString();
+    }
+    private static String generateScramble2x2() {
+        StringBuilder scramble = new StringBuilder();
+        Random rand = new Random();
+        int number;
+        for (int i = 0; i < 10; i++) {
+            number = rand.nextInt(3);
+            switch (number) {
+                case 0: scramble.append('F'); break;
+                case 1: scramble.append('R'); break;
+                case 2: scramble.append('U'); break;
             }
             number = rand.nextInt(3);
             switch (number) {

@@ -69,6 +69,7 @@ public class TimerFragment extends Fragment {
                             tv.setText(timeStr);
                             Solve solve = new Solve();
                             solve.time = time;
+                            solve.scramble = (String) scrambleText.getText();
                             solves.add(0, solve);
                             arrayAdapter.notifyDataSetChanged();
                             updateStatistics(solves);
