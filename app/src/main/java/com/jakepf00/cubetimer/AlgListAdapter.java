@@ -12,13 +12,6 @@ import java.util.ArrayList;
 
 public class AlgListAdapter extends RecyclerView.Adapter<AlgListAdapter.AlgViewHolder> {
     private ArrayList<Algorithm> algSet;
-    private int grey;
-    private int white;
-    private int yellow;
-    private int blue;
-    private int green;
-    private int red;
-    private int orange;
 
     static class AlgViewHolder extends RecyclerView.ViewHolder {
         TextView name;
@@ -32,15 +25,8 @@ public class AlgListAdapter extends RecyclerView.Adapter<AlgListAdapter.AlgViewH
         }
     }
 
-    public AlgListAdapter(ArrayList<Algorithm> algs, Resources resources) {
+    public AlgListAdapter(ArrayList<Algorithm> algs) {
         algSet = algs;
-        grey = resources.getColor(R.color.grey_cube);
-        white = resources.getColor(R.color.white_cube);
-        yellow = resources.getColor(R.color.yellow_cube);
-        blue = resources.getColor(R.color.blue_cube);
-        green = resources.getColor(R.color.green_cube);
-        red = resources.getColor(R.color.red_cube);
-        orange = resources.getColor(R.color.orange_cube);
     }
     @Override
     @NonNull

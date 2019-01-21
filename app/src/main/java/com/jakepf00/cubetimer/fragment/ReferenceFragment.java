@@ -75,7 +75,7 @@ public class ReferenceFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String subset = (String) parent.getItemAtPosition(position);
                 ArrayList<Algorithm> thing = AlgUtils.getSubset(subset, getResources());
-                recyclerAdapter = new AlgListAdapter(thing, getResources());
+                recyclerAdapter = new AlgListAdapter(thing);
                 recyclerView.swapAdapter(recyclerAdapter, false);
             }
             @Override
